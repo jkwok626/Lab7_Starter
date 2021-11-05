@@ -67,11 +67,13 @@ export class Router {
      *  4. Finally, call the stored function for the given page
      */
 
+    // Checks if function exists
     if (!this[page]) {
       console.log("The function doesn't exist");
       return;
     }
 
+    // Initialize and assign hash variable
     let hash; 
 
     if (page == 'home') {
@@ -81,12 +83,12 @@ export class Router {
     }
     
     if (!statePopped && window.location.hash != hash) {
-      console.log("before history");
+      // Call history.pushState().
+      // In the state parameter, assign page to the page that we pass in
       history.pushState({page: page}, '', window.location.origin + hash);
-      console.log('here');
-      console.log(history);
     }
 
+    // Call the stored function
     this[page]();
   }
 }

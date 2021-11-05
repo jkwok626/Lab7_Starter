@@ -90,6 +90,7 @@ async function fetchRecipes() {
  * appends them to the page
  */
 function createRecipeCards() {
+  // Loops through all recipes
   for (let i = 0; i < recipes.length; i++) {
 
     // Makes a new recipe card
@@ -115,6 +116,7 @@ function createRecipeCards() {
 
     document.querySelector('.recipe-cards--wrapper').appendChild(recipeCard);
 
+    // If the index is greater than 2, hide the recipe card we just created
     if (i > 2) {
       document.getElementsByTagName('recipe-card')[i].classList.add('hidden');
     }
@@ -183,9 +185,13 @@ function bindEscKey() {
    * if the escape key is pressed, use your router to navigate() to the 'home'
    * page. This will let us go back to the home page from the detailed page.
    */
+
+  // Listen for a keydown
   document.addEventListener('keydown', escPress);
 
   function escPress(e) {
+    // Once we have identified that a key has been pressed, if that key was 
+    // the escape key, navigate to home
     if (e.key == "Escape") {
       router.navigate('home');
     }
@@ -212,9 +218,8 @@ function bindPopstate() {
    * creating an infinite loop
    */
 
-  document.addEventListener('popstate', () => {
-    console.log('got popstate event');
-  });
+  // Listen for when the user hits the forward or back buttons
+  window.addEventListener('popstate', forwardBack);
 
   function forwardBack(e) {
     console.log('got forward or back');
@@ -222,12 +227,14 @@ function bindPopstate() {
       console.log(e.state);
       if (e.state.page) {
         console.log('Valid state and page');
+        // If the page exists, navigate to it
         router.navigate(e.state.page, true);
       } else {
         console.log("This page doesn't exist");
       }
       console.log('reached');
     } else {
+      // Else navigate to home
       router.navigate('home', true);
     }
   }
