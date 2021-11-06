@@ -12,20 +12,21 @@ self.addEventListener('install', function (event) {
 
   // Store the files that we need to be cached in an array
    var urlsToCache = [
-    '/',
-    'index.html',
-    'assets/styles/main.css',
-    'assets/scripts/main.js',
-    'assets/scripts/Router.js',
-    'assets/components/RecipeCard.js',
-    'assets/components/RecipeExpand.js',
-    'assets/images/icons/0-star.svg',
-    'assets/images/icons/1-star.svg',
-    'assets/images/icons/2-star.svg',
-    'assets/images/icons/3-star.svg',
-    'assets/images/icons/4-star.svg',
-    'assets/images/icons/5-star.svg',
-    'assets/images/icons/arrow-down.png',
+    './',
+    './index.html',
+    './assets/styles/main.css',
+    './assets/scripts/main.js',
+    './assets/scripts/Router.js',
+    './assets/components/RecipeCard.js',
+    './assets/components/RecipeExpand.js',
+    './assets/images/icons/0-star.svg',
+    './assets/images/icons/1-star.svg',
+    './assets/images/icons/2-star.svg',
+    './assets/images/icons/3-star.svg',
+    './assets/images/icons/4-star.svg',
+    './assets/images/icons/5-star.svg',
+    './assets/images/icons/arrow-down.png',
+    './favicon.ico'
   ];
 
   event.waitUntil(
